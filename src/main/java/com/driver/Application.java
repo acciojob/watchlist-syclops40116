@@ -10,3 +10,10 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 }
+
+
+//MovieController.java
+//MovieService.java
+//MovieRepository.java
+//Movie.java - String name, int durationInMinutes, double imdbRating, no-args constructor, all-args constructor and getters-setters
+//Director.java Class - String name, int numberOfMovies, double imdbRating, no-args constructor, all-args constructor and getters-setters
