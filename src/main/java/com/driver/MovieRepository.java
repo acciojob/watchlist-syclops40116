@@ -61,6 +61,8 @@ public class MovieRepository {
 		for(String dirName: directors.keySet()) {
 			this.deleteDirectorByName(dirName);
 		}
+
+		directors.clear();
 	}
 }
 
