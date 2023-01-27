@@ -14,26 +14,21 @@ public class MovieRepository {
 	Map<String, Director> directors = new HashMap<>();
 	Map<String, HashSet<String>> dir_movie_pair = new HashMap<>();
 	
-	public String addMovie(Movie movie) {
+	public void addMovie(Movie movie) {
 		String movieName = movie.getName();
-		if(movies.containsKey(movieName)) return null;
 		movies.put(movieName, movie);
-		return "success";
 	}
 	
-	public String addDirector(Director director) {
+	public void addDirector(Director director) {
 		String dir_name = director.getName();
-		if(directors.containsKey(dir_name)) return null;
 		directors.put(dir_name, director);
-		return "success";
 	}
 	
-	public String addMovieDirectorPair(String directorName, String movieName) {
+	public void addMovieDirectorPair(String directorName, String movieName) {
 		if(!dir_movie_pair.containsKey(directorName))
 			dir_movie_pair.put(directorName, new HashSet<String>());
 		
 		dir_movie_pair.get(directorName).add(movieName);
-		return "success";
 	}
 	
 	public Movie getMovieByName(String movieName) {
@@ -53,24 +48,20 @@ public class MovieRepository {
 		return new ArrayList<String>(movies.keySet());
 	}
 	
-	public String deleteDirectorByName(String directorName) {
+	public void deleteDirectorByName(String directorName) {
 		HashSet<String> dirMovies = dir_movie_pair.get(directorName);
 		
 		for(String movie: dirMovies) {
 			movies.remove(movie);
 		}
 		dir_movie_pair.remove(directorName);
-		return "sucess";
 	}
 	
-	public String deleteAllDirectors() {
+	public void deleteAllDirectors() {
 		for(String dirName: directors.keySet()) {
 			this.deleteDirectorByName(dirName);
 		}
-		return "success";
 	}
-	
-
 }
 
 

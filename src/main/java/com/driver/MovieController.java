@@ -20,23 +20,22 @@ public class MovieController {
     @Autowired
     MovieService movieService;
     
-    
     @PostMapping("/movies/add-movie")
     public ResponseEntity<String> addMovie(@RequestBody Movie movie) {
-        String message = movieService.addMovie(movie);
-        return new ResponseEntity<String>(message, HttpStatus.OK);
+        movieService.addMovie(movie);
+        return new ResponseEntity<String>("success", HttpStatus.OK);
     }
 
     @PostMapping("/movies/add-director")
     public ResponseEntity<String> addDirector(@RequestBody Director director) {
-    	String message = movieService.addDirector(director);
-        return new ResponseEntity<String>(message, HttpStatus.OK);
+    	movieService.addDirector(director);
+        return new ResponseEntity<String>("success", HttpStatus.OK);
     }
 
     @PutMapping("/movies/add-movie-director-pair")
     public ResponseEntity<String> addMovieDirectorPair(@RequestParam("mname") String mname,@RequestParam("dname") String dname) {
-    	String message = movieService.addMovieDirectorPair(dname, mname);
-        return new ResponseEntity<String>(message, HttpStatus.OK);
+    	movieService.addMovieDirectorPair(dname, mname);
+        return new ResponseEntity<String>("success", HttpStatus.OK);
     }
 
     @GetMapping("/movies/get-movie-by-name/{name}")
@@ -65,13 +64,13 @@ public class MovieController {
 
     @DeleteMapping("/movies/delete-director-by-name")
     public ResponseEntity<String> deleteDirectorByName(@RequestParam String name) {
-    	String message = movieService.deleteDirectorByName(name);
-        return new ResponseEntity<String>(message, HttpStatus.OK);
+    	movieService.deleteDirectorByName(name);
+        return new ResponseEntity<String>("success", HttpStatus.OK);
     }
 
     @DeleteMapping("/movies/delete-all-directors")
     public ResponseEntity<String> deleteAllDirectors() {
-    	String message = movieService.deleteAllDirectors();
-        return new ResponseEntity<String>(message, HttpStatus.OK);
+    	movieService.deleteAllDirectors();
+        return new ResponseEntity<String>("success", HttpStatus.OK);
     }
 }

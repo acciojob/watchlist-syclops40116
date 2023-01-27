@@ -10,18 +10,18 @@ public class MovieService {
 	@Autowired
 	MovieRepository repository;
 //	addMovie
-	public String addMovie(Movie movie) {
-		return repository.addMovie(movie);
+	public void addMovie(Movie movie) {
+		repository.addMovie(movie);
 	}
 
 //	addDirector
-	public String addDirector(Director director) {
-		return repository.addDirector(director);
+	public void addDirector(Director director) {
+		repository.addDirector(director);
 	}
 	
 //	addMovieDirectorPair
-	public String addMovieDirectorPair(String dname, String mname) {
-		return repository.addMovieDirectorPair(dname, mname);
+	public void addMovieDirectorPair(String dname, String mname) {
+		repository.addMovieDirectorPair(dname, mname);
 	}
 	
 //	getMovieByName
@@ -45,12 +45,12 @@ public class MovieService {
 	}
 
 //	deleteDirectorByName
-	public String deleteDirectorByName(String dname) {
-		return repository.deleteDirectorByName(dname);
+	public void deleteDirectorByName(String dname) {
+		repository.deleteDirectorByName(dname);
 	}
 
 //	deleteAllDirectors
-	public String deleteAllDirectors() {
-		return repository.deleteAllDirectors();
+	public void deleteAllDirectors() {
+		repository.deleteAllDirectors();
 	}
 }
